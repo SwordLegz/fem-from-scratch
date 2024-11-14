@@ -223,7 +223,6 @@ h1 {
     }
   }
 
-
   .section {
     --padding: 3.75rem;
     padding-block: var(3.75rem);
@@ -269,8 +268,12 @@ h1 {
     border: 0;
 
     img {
-        border-radius: 0;
+      border-radius: 0;
     }
+  }
+
+  [aria-controls="primary-nav"] {
+
   }
 
   .primary-navigation {
@@ -284,6 +287,7 @@ h1 {
       text-decoration: none;
     }
     @media (width > 760px) {
+      display: none;
       position: absolute;
       top: 0;
       right: 0;
@@ -299,10 +303,19 @@ h1 {
         flex-direction: column;
       }
       li + li {
-            margin-block-start: 1.5rem;
-            padding-block-start: 1.5rem;
-            border-top: 2px solid var(--background-accent-light);
-        }
+        margin-block-start: 1.5rem;
+        padding-block-start: 1.5rem;
+        border-top: 2px solid var(--background-accent-light);
+      }
+    }
+  }
+  
+  @media (width < 760px) {
+    [aria-controls="primary-nav"] {
+        
+    }
+    [aria-expanded="true"] + .primary-navigation {
+        display: block;
     }
   }
 }
